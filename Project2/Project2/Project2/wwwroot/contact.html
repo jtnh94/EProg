@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contact</title>
+</head>
+<body>
+    <form>
+        <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput" required>
+        </div>
+        <div class="form-group">
+            <label for="emailInput">Email address</label>
+            <input type="email" class="form-control" id="emailInput" required>
+        </div>
+        <div class="form-group">
+            <label for="reasonsSelectDropdown">Reason for contact</label>
+            <select class="form-control" id="reasonsSelectDropdown" required>
+                <option disabled selected>Please select a reason for contact.</option>
+                <option>Dont contact me please</option>
+                <option>I rather not deal with your complaints</option>
+                <option>Goodbye</option>
+                <option>Hello</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="questionsTextArea">Question</label>
+            <textarea class="form-control" id="questionsTextArea" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <center><a href="index.html" class="backBtn">Go Back</a></center>
+
+    <script type="text/javascript" src="bundle.js"></script>
+</body>
+</html>

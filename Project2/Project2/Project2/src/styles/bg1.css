@@ -1,0 +1,87 @@
+﻿
+body{
+    background-color: black;
+}
+
+.list-group-item{
+    background-color: ghostwhite;
+    color: black;
+}
+
+.card{
+    background-color: ghostwhite;
+    color: black;
+}
+
+.card-title{
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+.card-header{
+    text-decoration:solid;
+}
+
+.form-group{
+    background-color:white;
+}
+
+.picture{
+    width:100%;
+    max-width:200px;
+    height:auto;
+
+    display: inline-block;
+}
+
+.col-sm-4{
+    display:block;
+}
+
+.col-xs-4{
+    display:block;
+}
+
+.backBtn{
+    color:white;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: black;
+}
+
+p1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+ol {
+    color: black;
+}
+
+ul {
+    color: black;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+li {
+    color: black;
+}
+
+i {
+    color: white;
+}
+
+.nav-item{
+    color:white;
+}
