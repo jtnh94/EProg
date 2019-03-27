@@ -1,0 +1,62 @@
+<form>
+  <div class="form-group">
+    <label for="searchString">Search</label>
+    <input name="searchString" type="text" [(ngModel)]="searchString" class="form-control" id="searchString" placeholder="Search">
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="searchType" id="isUser" [(ngModel)]="searchType" value="isUser">
+    <label class="form-check-label" for="isUser">User</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="searchType" id="isRepo" [(ngModel)]="searchType" value="isRepo">
+    <label class="form-check-label" for="isRepo">Repository</label>
+  </div>
+  <button type="button" (click)="search()" class="btn btn-primary">Search</button>
+</form>
+
+<div *ngIf="loading">Loading...</div>
+
+<div *ngIf="searchResultsForUser && !loading">
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+    </tr>
+    <tr *ngFor="let user of searchResultsForUser">
+      <td>{{user.login}}<br /> <a [routerLink]='["/user", user.login]'>More Details</a></td>
+      <td><img [src] ="user.avatar_url"/> </td>
+    </tr>
+  </table>
+  <div>
+    <button class="btn-primary" (click)="prevPageForUsers()">Previous</button>
+    <button class="btn-primary" (click)="nextPageForUsers()">Next</button>
+  </div>
+</div>
+
+<div *ngIf="searchResultsForRepo && !loading">
+  <table class="table">
+    <tr>
+      <th>Image</th>
+      <th>Open Issues</th>
+      <th>Stars</th>
+      <th>Language</th>
+    </tr>
+    <tr *ngFor="let repo of searchResultsForRepo">
+      <td>
+        <img [src]="repo.owner.avatar_url" />
+        <br />
+      {{repo.full_name}}<br /> <a [routerLink]='["/repository", repo.full_name]'>More Details</a>
+      <td>{{repo.open_issues_count}}</td>
+      <td>{{repo.stargazers_count}}</td>
+      <td>{{repo.language}}</td>
+    </tr>
+  </table>
+  <div>
+    <button class="btn-primary" (click)="prevPageForRepos()">Previous</button>
+    <button class="btn-primary" (click)="nextPageForRepos()">Next</button>
+  </div>
+</div>
+
+<div class="alert alert-warning" role="alert" *ngIf="searchFailed">
+  No results, try again.
+</div>

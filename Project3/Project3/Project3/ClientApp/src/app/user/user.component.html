@@ -1,0 +1,39 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" [src]="user.avatar_url" alt="Card image cap" />
+  <div class="card-body">
+    <p class="card-text">
+      {{user.login}}<br />
+      <a href="{{user.html_url}}">{{user.html_url}}</a> <br />
+      Name - {{user.name}}<br />
+      Blog - {{user.blog}}<br />
+      Location - {{user.location}}<br />
+    </p>
+  </div>
+</div>
+
+  <table class="table">
+    <tr>
+      <th>Repo</th>
+      <th>Stars</th>
+      <th>Open Issues</th>
+      <th>Language</th>
+    </tr>
+  <tr *ngFor="let repo of repo">
+    <td><a [routerLink]='["/repository", repo.full_name]'>{{repo.name}}</a></td>
+    <td>{{repo.stargazers_count}}</td>
+    <td>{{repo.open_issues_count}}</td>
+    <td>{{repo.language}}</td>
+  </tr>
+    <br />
+</table>
+
+<table class="table">
+  <th>Followers</th>
+  <tr *ngFor="let user of follower">
+    <td><img [src]="user.avatar_url" /></td>
+    <td>{{user.login}}</td>
+  </tr>
+</table>
+
+
+

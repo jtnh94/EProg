@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="card" style="width: 30rem;">
+        <div class="card-body">
+          <p class="card-text">
+            Name - {{repo.name}}<br />
+            <a href="{{repo.html_url}}">{{repo.html_url}}</a> <br />
+            Description - {{repo.description}}<br />
+            Stars - {{repo.stargazezrs_count}}<br />
+            Subscribers - {{repo.watchers_count}}<br />
+            Forks - {{repo.forks_count}} <br />
+            Open Issues - {{repo.open_issues_count}} <br />
+            Language - {{repo.language}} <br />
+            Clone Url - {{repo.clone_url}} <br />
+          </p>
+        </div>
+      </div>
+      <div *ngIf="commit">
+      <table class="table">
+        <th>Author</th>
+        <th>Commit</th>
+        <th>Commit Message</th>
+        <th>Comment Count</th>
+        <tr *ngFor="let com of commit">
+          <td>{{com.author.login}}</td>
+          <td><a href="{{com.html_url}}">{{com.html_url}}</a></td>
+          <td>{{com.message}}</td>
+          <td>{{com.comment_count}}</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  </div>
