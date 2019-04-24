@@ -1,0 +1,49 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <form>
+        <div class="form-group">
+          <label for="warningTime">Set Warning Time</label><br />
+          Day
+          <input type="number" class="form-control" id="warningDay" [(ngModel)]="warningDay" value="2" name="warningDay" style="width: auto" min="0" />
+          Hour
+          <input type="number" class="form-control" id="warningHour" [(ngModel)]="warningHour" value="0" name="warningHour" style="width: auto" min="0" max="24" />
+        </div>
+        <button type="submit" (click)="setWarningTime()" class="btn btn-primary">Set</button>  <br />
+      </form>
+    </div>
+    <div class="col-sm">
+      <form>
+        <div class="form-group">
+          <label for="name">Tag Filter</label>
+          <input type="text" class="form-control" name="tagFilter" id="tagFilter" [(ngModel)]="tagFilter">
+        </div>
+        <button type="submit" (click)="filterItems()" class="btn btn-primary">Filter</button>
+      </form>
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <tr>
+    <th><button (click)="sortByTask()" class="btn btn-secondary">Task</button></th>
+    <th><button (click)="sortByDate()" class="btn btn-secondary">Due Date</button></th>
+    <th>Edit</th>
+  </tr>
+
+  <ng-container>
+  <tr *ngFor="let item of toDoList" [ngStyle]="{'background-color': item.dueDate < timeNow ? 'palevioletred' : 'white'}">
+    <td>{{item.name}}</td>
+    <td>{{item.dueDate}}</td>
+    <td>
+      <button (click)="editToDo(item)" class="btn btn-dark" [routerLink]='["/todo/update", item.id]'>Edit</button>
+      <button [ngStyle]="{'display': item.status === false ? 'block' : 'none'}" (click)="completeTodo(item)" class="btn btn-success" id="completeButton">Complete</button>
+      <button [ngStyle]="{'display': item.status === false ? 'none' : 'block'}" (click)="deleteToDo(item.id)" class="btn btn-danger" id="deleteButton">Delete</button>
+    </td>
+  </tr>
+  </ng-container>
+</table>
